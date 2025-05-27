@@ -1,4 +1,3 @@
- Data Cleaning Summary
 1. Handled Missing Values
    Filled missing data using:
 
