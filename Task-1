@@ -1,0 +1,20 @@
+#importing pandas package
+import pandas as pd
+#load the dataset
+data=pd.read_csv('C:/data/food_coded.csv')
+data
+#before cleaning
+data.info()
+#remove duplicate columns
+data=data.loc[:, ~data.columns.duplicated()]
+#remove duplicate rows
+data.drop_duplicates(inplace=True)
+#fill missing values with MEAN
+data_mean=data.fillna(data.mean(numeric_only=True))
+#fill missing values with MEDIAN-for numeric columns
+data_median=data.fillna(data.median(numeric_only=True))
+#fill missing values with MODE
+data_mode=data.fillna(data.mode().iloc[0])
+data=data_mode
+#after cleaning
+data.info()
